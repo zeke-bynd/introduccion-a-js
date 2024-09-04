@@ -73,3 +73,29 @@ function calcularNumeroFrecuente(arrayNumeros){
     }, Object.keys(frecuencia)[0]);
     return numeroMasFrecuente
 }
+
+function calcularNumeroFrecuente(arrayNumeros) {
+    
+    const frecuencia = {};
+
+    for (let i = 0; i < arrayNumeros.length; i++) {
+        const num = arrayNumeros[i];
+        if (frecuencia[num] === undefined) {
+            frecuencia[num] = 1;
+        } else {
+            frecuencia[num]++;
+        }
+    }
+
+    let numeroMasFrecuente = null;
+    let maxFrecuencia = 0;
+
+    for (const num in frecuencia) {
+        if (frecuencia[num] > maxFrecuencia) {
+            maxFrecuencia = frecuencia[num];
+            numeroMasFrecuente = num;
+        }
+    }
+
+    return numeroMasFrecuente;
+}
